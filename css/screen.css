@@ -209,13 +209,19 @@ a:focus {
     padding-left: 48px;
     padding-right: 48px;
   }
-
+  .o-row--md {
+    padding-top: 48px;
+    padding-bottom: 24px;
+  }
   .o-row--lg {
     padding-top: 72px;
     padding-bottom: 48px;
   }
 }
-
+/* color modifiers */
+.o-row—neutral-x-light {
+  background-color: #f7f7fa;
+}
 /*
     Objects: Container
     ---
@@ -396,26 +402,29 @@ a:focus {
   }
 }
 /*
-    Component: header
+    Objects: section
     ---
-    Main header of the website
+    Creates vertical whitespace between adjacent sections inside a row
 */
 
-.c-header__nav {
-  display: none;
+.o-section {
+  overflow: auto;
 }
 
-@media (min-width: 992px) {
-  .c-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .c-header__nav {
-    display: block;
-  }
+.o-section + .o-section {
+  margin-top: 24px;
+}
 
-  .c-nav--meta {
+@media (min-width: 768px) {
+  .o-section--lg + .o-section--lg,
+  .o-section--xl + .o-section--xl {
+    margin-top: 48px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .o-section--xl + .o-section--xl {
+    margin-top: 72px;
   }
 }
 
@@ -441,10 +450,41 @@ a:focus {
     height: 40px;
   }
 }
+/*
+    Component: header
+    ---
+    Main header of the website
+*/
+
+.c-header__nav {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .c-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .c-header__nav {
+    display: block;
+  }
+  .c-nav--meta {
+  }
+}
 
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+  padding-top: 0 !important;
+}
 
 /*
     Utilities: max-width
